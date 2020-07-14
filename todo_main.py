@@ -24,5 +24,7 @@ while command != "quit":
         mainStore.exportList()
     elif command == "total":
         print(f"Number of items: {mainStore.getNumItems()}")
+    
+    command = input("What would you like to do? ")
 
 exit(0)
