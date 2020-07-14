@@ -11,7 +11,7 @@ while command != "quit":
         description = input("Description: ")
         isDue = input("Is it due (True/False): ")
 
-        if isDue == True:
+        if isDue == "True":
             due = input("Due date: ")
         
         item = TodoItem(description, priority=priority, isDue=isDue)
