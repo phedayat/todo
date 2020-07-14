@@ -22,8 +22,8 @@ class TodoStore:
 
         for item in self.todoList:
             if item.getCompleted():
-                self.todoListFile.write(f"[x] {item.getPriority()}: {item.getDescription()}; Due: {item.due if item.isDue == False else item.isDue}")
+                self.todoListFile.write(f"[x] {item.getPriority()}: {item.getDescription()}; Due: {item.due if item.isDue == False else item.isDue}\n")
             else:
-                self.todoListFile.write(f"[ ] {item.getPriority()}: {item.getDescription()}; Due: {item.due if item.isDue == False else item.isDue}")
+                self.todoListFile.write(f"[ ] {item.getPriority()}: {item.getDescription()}; Due: {item.due if item.isDue == False else item.isDue}\n")
 
         self.todoListFile.close()
