@@ -11,12 +11,15 @@ class TodoStore:
         self.todoList.append(todoItem)
     
     def completeItem(self, numItem):
-        self.todoList[numItem].getCompleted()
+        self.todoList[numItem].setCompleted(True)
 
     def exportList(self):
         self.todoListFile = open("todoList.txt", "w")
 
         for item in self.todoList:
-            self.todoListFile.write(f"{item.getPriority()}: {item.getDescription()}; Due: {(item.isDue, item.due)[item.isDue]}")
-        
+            if item.getCompleted():
+                self.todoListFile.write(f"[x] {item.getPriority()}: {item.getDescription()}; Due: {(item.isDue, item.due)[item.isDue]}")
+            else:
+                self.todoListFile.write(f"[ ] {item.getPriority()}: {item.getDescription()}; Due: {(item.isDue, item.due)[item.isDue]}")
+                
         self.todoListFile.close()
