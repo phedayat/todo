@@ -5,9 +5,7 @@ class TodoItem:
         self.description = description
         self.isDue = isDue
         self.completed = completed
-
-        if self.isDue == True:
-            self.due = ""
+        self.due = ""
 
     def setDescription(self, newDesc):
         self.description = newDesc
