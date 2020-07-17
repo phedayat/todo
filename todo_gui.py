@@ -19,8 +19,15 @@ class Todo_Gui(Frame):
         self.priority.pack(side="top")
 
         self.due = StringVar()
-        self.isDue = Checkbutton(self.master, text="Is it Due?", onvalue="true", offvalue="false", variable=self.due)
-        self.isDue.pack(side="bottom")
+        isDue = Checkbutton(self.master, text="Is it Due?", onvalue="true", offvalue="false", variable=self.due)
+        isDue.pack(side="bottom")
+
+        self.completed = StringVar()
+        completedWidget = Checkbutton(self.master, text="Completed?", onvalue="true", offvalue="false", variable=self.completed)
+        completedWidget.pack(side="bottom")
+
+        printer = Button(self.master, text="Print", command=self.print_items)
+        printer.pack(side="bottom")
 
         self.hi = Button(self)
         self.hi["text"] = "Click here!"
@@ -31,15 +38,15 @@ class Todo_Gui(Frame):
         self.quit.pack(side="bottom")
 
     def add_item(self):
-        print(self.priority.get())
-        print(self.due.get())
-        print(self.description.get("1.0", END))
-        item = TodoItem(self.description.get(), self.completed.get(), self.priority.get(), self.isDue.get())
+        # print(self.priority.get())
+        # print(self.due.get())
+        # print(self.description.get("1.0", END))
+        item = TodoItem(self.description.get("1.0", END), self.completed.get(), self.priority.get(), self.due.get())
         self.store.addItem(item)
 
-    def printItems(self):
+    def print_items(self):
         for item in self.store.todoList:
-            print(item.)
+            print(item.itemToString())
 
 
 if __name__ == "__main__":
