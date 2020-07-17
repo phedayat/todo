@@ -4,7 +4,6 @@ class TodoStore:
 
     def __init__(self):
         self.numItems = 0
-        self.todoListFile = None
         self.todoList = []
 
     def getNumItems(self):
@@ -18,9 +17,9 @@ class TodoStore:
         self.todoList[int(numItem)].setCompleted(True)
 
     def exportList(self):
-        self.todoListFile = open("todo_list.txt", "w")
+        todoListFile = open("todo_list.txt", "w")
 
         for item in self.todoList:
-            item.itemToString()
+            todoListFile.write(item.itemToString())
 
-        self.todoListFile.close()
+        todoListFile.close()
