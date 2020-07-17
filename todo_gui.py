@@ -1,4 +1,4 @@
-from tkinter import *
+from tkinter import * # GUI
 from todo_item import TodoItem # Class for a single TODO item
 from todo_store import TodoStore # Class for containing all TODO items
 
