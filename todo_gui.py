@@ -5,6 +5,10 @@ from todo_store import TodoStore # Class for containing all TODO items
 class Todo_Gui(Frame):
 
     def __init__(self, master = None):
+        '''
+        Create a TODO GUI
+        '''
+
         super().__init__(master)
         self.master = master
         self.pack()
@@ -12,14 +16,16 @@ class Todo_Gui(Frame):
         self.store = TodoStore()
 
     def create_widgets(self):
+        '''
+        Create the widgets shown on screen.
+        '''
+
         # Quit button
         quitter = Button(self.master, text="EXIT", fg="red", command=self.master.destroy)
         quitter.pack(side="right")
 
         # Add button
-        add = Button(self.master)
-        add["text"] = "Add"
-        add["command"] = self.add_item
+        add = Button(self.master, text="Add", command=self.add_item)
         add.pack(side="right")
 
         # Description textarea
@@ -49,6 +55,10 @@ class Todo_Gui(Frame):
         exporter.pack(side="right")
 
     def add_item(self):
+        '''
+        Add an item to the TODO store
+        '''
+
         # print(self.priority.get())
         # print(self.due.get())
         # print(self.description.get("1.0", END))
@@ -57,6 +67,10 @@ class Todo_Gui(Frame):
         self.store.addItem(item)
 
     def print_items(self):
+        '''
+        Print the TODO items to the screen
+        '''
+
         listString = ""
 
         for item in self.store.todoList:
@@ -66,6 +80,10 @@ class Todo_Gui(Frame):
         displayLabel.pack(side="bottom")
 
     def export(self):
+        '''
+        Export the TODO items to a text file
+        '''
+
         file = open("todo_list.txt", "w")
 
         for item in self.store.todoList:
