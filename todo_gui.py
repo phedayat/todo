@@ -12,33 +12,41 @@ class Todo_Gui(Frame):
         self.store = TodoStore()
 
     def create_widgets(self):
+        # Quit button
+        quitter = Button(self.master, text="EXIT", fg="blue", command=self.master.destroy)
+        quitter.pack(side="right")
+
+        # Add button
+        add = Button(self.master)
+        add["text"] = "Add"
+        add["command"] = self.add_item
+        add.pack(side="right")
+
+        # Description textarea
         self.description = Text(self.master)
         self.description.pack(side="top")
 
+        # Priority textfield
         self.priority = Entry(self.master, textvariable=IntVar())
         self.priority.pack(side="top")
 
+        # Due checkbox
         self.due = StringVar()
         isDue = Checkbutton(self.master, text="Is it Due?", onvalue="true", offvalue="false", variable=self.due)
-        isDue.pack(side="bottom")
+        isDue.pack(side="left")
 
+        # Completed checkbox
         self.completed = StringVar()
         completedWidget = Checkbutton(self.master, text="Completed?", onvalue="true", offvalue="false", variable=self.completed)
-        completedWidget.pack(side="bottom")
+        completedWidget.pack(side="left")
 
+        # Print button
         printer = Button(self.master, text="Print", command=self.print_items)
-        printer.pack(side="bottom")
+        printer.pack(side="right")
 
+        # Export button
         exporter = Button(self.master, text="Export", command=self.export)
-        exporter.pack(side="bottom")
-
-        self.hi = Button(self)
-        self.hi["text"] = "Add"
-        self.hi["command"] = self.add_item
-        self.hi.pack(side="top")
-
-        self.quit = Button(self, text="EXIT", fg="blue", command=self.master.destroy)
-        self.quit.pack(side="bottom")
+        exporter.pack(side="right")
 
     def add_item(self):
         # print(self.priority.get())
