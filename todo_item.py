@@ -50,6 +50,6 @@ class TodoItem:
 
     def itemToString(self):
         if self.getCompleted() == "true":
-            return f"[x] {self.getPriority()}: {self.getDescription()}; Due: {self.due if self.isDue == False else self.isDue}\n"
+            return f"[x] {self.getPriority()}: {self.getDescription()}; Due: {self.due if self.isDue == False else self.isDue}"
         else:
-            return f"[ ] {self.getPriority()}: {self.getDescription()}; Due: {self.due if self.isDue == False else self.isDue}\n"
+            return f"[ ] {self.getPriority()}: {self.getDescription()}; Due: {self.due if self.isDue == False else self.isDue}"

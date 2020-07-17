@@ -66,6 +66,9 @@ class Todo_Gui(Frame):
         item = TodoItem(self.description.get("1.0", END), self.completed.get(), self.priority.get(), self.due.get())
         self.store.addItem(item)
 
+        displayBox = Checkbutton(self.master, text=item.itemToString(), onvalue="complete", offvalue="incomplete")
+        displayBox.pack(side="bottom")
+
     def print_items(self):
         '''
         Print the TODO items to the screen
@@ -84,12 +87,7 @@ class Todo_Gui(Frame):
         Export the TODO items to a text file
         '''
 
-        file = open("todo_list.txt", "w")
-
-        for item in self.store.todoList:
-            file.write(item.itemToString())
-        
-        file.close()
+        self.store.exportList()
 
 if __name__ == "__main__":
     root = Tk()

@@ -18,7 +18,7 @@ class TodoStore:
         self.todoList[int(numItem)].setCompleted(True)
 
     def exportList(self):
-        self.todoListFile = open("todoList.txt", "w")
+        self.todoListFile = open("todo_list.txt", "w")
 
         for item in self.todoList:
             item.itemToString()
