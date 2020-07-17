@@ -46,8 +46,13 @@ class Todo_Gui(Frame):
         self.store.addItem(item)
 
     def print_items(self):
+        listString = ""
+
         for item in self.store.todoList:
-            print(item.itemToString())
+            listString += item.itemToString()
+        
+        displayLabel = Label(self.master, text=listString)
+        displayLabel.pack(side="bottom")
 
 
 if __name__ == "__main__":
