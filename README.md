@@ -5,4 +5,4 @@ Work in progress!
 
 ## Current State
 
-![Current State](./currentState.png)
+![Current State](./screenshots/currentState.png)
