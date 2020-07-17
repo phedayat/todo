@@ -4,6 +4,8 @@ from todo_store import TodoStore # Class for containing all TODO items
 
 class Todo_Gui(Frame):
 
+    # TODO: Begin using frames and/or new windows for displaying
+
     def __init__(self, master = None):
         '''
         Create a TODO GUI
