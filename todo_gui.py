@@ -41,6 +41,7 @@ class Todo_Gui(Frame):
         # print(self.priority.get())
         # print(self.due.get())
         # print(self.description.get("1.0", END))
+        print(self.completed.get())
         item = TodoItem(self.description.get("1.0", END), self.completed.get(), self.priority.get(), self.due.get())
         self.store.addItem(item)
 
