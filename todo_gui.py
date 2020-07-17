@@ -30,23 +30,26 @@ class Todo_Gui(Frame):
         add = Button(self.master, text="Add", command=self.add_item)
         add.pack(side="right")
 
+        todoFrame = Frame(self.master, borderwidth=3, relief="sunken", width=200, height=200)
+        todoFrame.pack(side="left")
+
         # Description textarea
-        self.description = Text(self.master)
+        self.description = Text(todoFrame)
         self.description.pack(side="top")
 
         # Priority textfield
-        self.priority = Entry(self.master, textvariable=IntVar())
-        self.priority.pack(side="top")
+        self.priority = Entry(todoFrame, textvariable=IntVar())
+        self.priority.pack(side="bottom")
 
         # Due checkbox
         self.due = StringVar()
-        isDue = Checkbutton(self.master, text="Is it Due?", onvalue="true", offvalue="false", variable=self.due)
-        isDue.pack(side="left")
+        isDue = Checkbutton(todoFrame, text="Is it Due?", onvalue="true", offvalue="false", variable=self.due)
+        isDue.pack(side="bottom")
 
         # Completed checkbox
         self.completed = StringVar()
-        completedWidget = Checkbutton(self.master, text="Completed?", onvalue="true", offvalue="false", variable=self.completed)
-        completedWidget.pack(side="left")
+        completedWidget = Checkbutton(todoFrame, text="Completed?", onvalue="true", offvalue="false", variable=self.completed)
+        completedWidget.pack(side="bottom")
 
         # Print button
         printer = Button(self.master, text="Print", command=self.print_items)
