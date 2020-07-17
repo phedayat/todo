@@ -29,8 +29,11 @@ class Todo_Gui(Frame):
         printer = Button(self.master, text="Print", command=self.print_items)
         printer.pack(side="bottom")
 
+        exporter = Button(self.master, text="Export", command=self.export)
+        exporter.pack(side="bottom")
+
         self.hi = Button(self)
-        self.hi["text"] = "Click here!"
+        self.hi["text"] = "Add"
         self.hi["command"] = self.add_item
         self.hi.pack(side="top")
 
@@ -49,11 +52,18 @@ class Todo_Gui(Frame):
         listString = ""
 
         for item in self.store.todoList:
-            listString += item.itemToString()
+            listString += item.itemToString() + "\n"
         
         displayLabel = Label(self.master, text=listString)
         displayLabel.pack(side="bottom")
 
+    def export(self):
+        file = open("todo_list.txt", "w")
+
+        for item in self.store.todoList:
+            file.write(item.itemToString())
+        
+        file.close()
 
 if __name__ == "__main__":
     root = Tk()

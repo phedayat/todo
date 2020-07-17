@@ -11,6 +11,7 @@ class TodoItem:
         self.description = newDesc
 
     def setPriority(self, newPriority):
+        # TODO: Change priority system to exclamation marks with radio buttons
         if newPriority < 0 or newPriority > 3:
             print("Priority can only be 0-3")
         else:
