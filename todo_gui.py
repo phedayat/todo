@@ -13,7 +13,7 @@ class Todo_Gui(Frame):
 
     def create_widgets(self):
         # Quit button
-        quitter = Button(self.master, text="EXIT", fg="blue", command=self.master.destroy)
+        quitter = Button(self.master, text="EXIT", fg="red", command=self.master.destroy)
         quitter.pack(side="right")
 
         # Add button
