@@ -9,10 +9,18 @@ class Todo_Gui(Frame):
         self.master = master
         self.pack()
         self.create_widgets()
+        self.store = TodoStore()
 
     def create_widgets(self):
-        self.priority = Entry(self.master)
+        self.description = Text(self.master)
+        self.description.pack(side="top")
+
+        self.priority = Entry(self.master, textvariable=IntVar())
         self.priority.pack(side="top")
+
+        self.due = StringVar()
+        self.isDue = Checkbutton(self.master, text="Is it Due?", onvalue="true", offvalue="false", variable=self.due)
+        self.isDue.pack(side="bottom")
 
         self.hi = Button(self)
         self.hi["text"] = "Click here!"
@@ -24,8 +32,17 @@ class Todo_Gui(Frame):
 
     def add_item(self):
         print(self.priority.get())
+        print(self.due.get())
+        print(self.description.get("1.0", END))
+        item = TodoItem(self.description.get(), self.completed.get(), self.priority.get(), self.isDue.get())
+        self.store.addItem(item)
+
+    def printItems(self):
+        for item in self.store.todoList:
+            print(item.)
 
 
-root = Tk()
-app = Todo_Gui(master=root)
-app.mainloop()
+if __name__ == "__main__":
+    root = Tk()
+    app = Todo_Gui(master=root)
+    app.mainloop()

@@ -46,3 +46,9 @@ class TodoItem:
     
     def getCompleted(self):
         return self.completed
+
+    def itemToString(self):
+        if self.getCompleted():
+            return f"[x] {self.getPriority()}: {self.getDescription()}; Due: {self.due if self.isDue == False else self.isDue}\n"
+        else:
+            return f"[ ] {self.getPriority()}: {self.getDescription()}; Due: {self.due if self.isDue == False else self.isDue}\n"
