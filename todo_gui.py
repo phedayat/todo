@@ -1,6 +1,6 @@
 from tkinter import *
-import todo_item
-import todo_store
+from todo_item import TodoItem # Class for a single TODO item
+from todo_store import TodoStore # Class for containing all TODO items
 
 class Todo_Gui(Frame):
 
@@ -11,8 +11,7 @@ class Todo_Gui(Frame):
         self.create_widgets()
 
     def create_widgets(self):
-        self.i = IntVar()
-        self.priority = Entry(self.master, textvariable=self.i)
+        self.priority = Entry(self.master)
         self.priority.pack(side="top")
 
         self.hi = Button(self)
@@ -24,7 +23,7 @@ class Todo_Gui(Frame):
         self.quit.pack(side="bottom")
 
     def add_item(self):
-        item = TodoItem()
+        print(self.priority.get())
 
 
 root = Tk()

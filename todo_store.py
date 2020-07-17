@@ -17,13 +17,16 @@ class TodoStore:
     def completeItem(self, numItem):
         self.todoList[int(numItem)].setCompleted(True)
 
+    def itemToString(self, item):
+        if item.getCompleted():
+            return f"[x] {item.getPriority()}: {item.getDescription()}; Due: {item.due if item.isDue == False else item.isDue}\n"
+        else:
+            return f"[ ] {item.getPriority()}: {item.getDescription()}; Due: {item.due if item.isDue == False else item.isDue}\n"
+
     def exportList(self):
         self.todoListFile = open("todoList.txt", "w")
 
         for item in self.todoList:
-            if item.getCompleted():
-                self.todoListFile.write(f"[x] {item.getPriority()}: {item.getDescription()}; Due: {item.due if item.isDue == False else item.isDue}\n")
-            else:
-                self.todoListFile.write(f"[ ] {item.getPriority()}: {item.getDescription()}; Due: {item.due if item.isDue == False else item.isDue}\n")
-
+            self.itemToString(item)
+            
         self.todoListFile.close()
